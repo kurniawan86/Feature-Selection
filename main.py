@@ -1,7 +1,5 @@
+from correlation_matrix import Correlation
+
 if __name__ == '__main__':
-    panjang = 5
-    lebar = 2
-    luas = panjang * lebar
-    print ("luasnya adalah :",luas)
-
-
+    obj = Correlation()
+    matrix = obj.getCorrelationMatrix()
