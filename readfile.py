@@ -5,5 +5,5 @@ class ReadData:
         pass
 
     def readCSV(self):
-        data = panda.read_csv('autos.clean.csv')
+        data = panda.read_csv('train_data.csv')
         return data
