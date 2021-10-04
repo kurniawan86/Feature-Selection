@@ -8,7 +8,7 @@ class Correlation:
 
     def __init__(self):
         obj = ReadData()
-        self.data = obj.readCSV()
+        self.data = obj.readDiabetes()
         self.getCorrelation()
         self.visualCorrelation()
 
