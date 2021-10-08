@@ -29,5 +29,5 @@ class Correlation:
     def viewData(self):
         print("dataset \n", self.data)
 
-    def getCorrelationMatrix(self):
-        return self.corrMatrix
+    def getRelevanFeature(self):
+        cor_target = self.corrMatrix
