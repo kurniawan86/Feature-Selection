@@ -10,8 +10,7 @@ class ReadData:
         return data
 
     def readDiabetes(self):
-        diabetes = load_diabetes()
-        data = diabetes.data
-        features = diabetes.feature_names
-        df = panda.DataFrame(data, columns = features)
-        return df
+        dataset = panda.read_csv('diabetes.csv')
+        label = dataset['Outcome']
+        data = dataset.drop('Outcome', 1)
+        return data,label

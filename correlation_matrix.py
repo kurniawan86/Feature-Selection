@@ -3,14 +3,20 @@ from readfile import ReadData
 import seaborn as sn
 
 class Correlation:
-    data = None
+    dataset =[]
+    data = []
+    target = []
     corrMatrix = None
 
+
     def __init__(self):
+        self.getXY()
+
+    def getXY(self):
         obj = ReadData()
-        self.data = obj.readDiabetes()
-        self.getCorrelation()
-        self.visualCorrelation()
+        x, y = obj.readDiabetes()
+        self.label = y
+        self.data = x
 
     def getCorrelation(self):
         corr = self.data.corr()
