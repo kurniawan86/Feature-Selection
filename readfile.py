@@ -14,3 +14,8 @@ class ReadData:
         label = dataset['Outcome']
         data = dataset.drop('Outcome', 1)
         return data,label
+
+    def readDiabetesDataset(self):
+        dataset = panda.read_csv('diabetes.csv')
+        df = panda.DataFrame(dataset)
+        return df

@@ -1,4 +1,5 @@
 from readfile import ReadData
+from correlation_matrix import Correlation
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
@@ -52,12 +53,21 @@ class Classification:
     def __init__(self,modelname,prepocessing=None):
         if prepocessing==None:
             self.getXYFromReadile()
+        elif prepocessing=='correlation':
+            print(prepocessing)
+            self.getXYfromCorrelation()
         self.getModel(modelname)
         self.scoreTest()
 
     def getXYFromReadile(self):
         obj = ReadData()
         x, y = obj.readDiabetes()
+        self.target = y
+        self.data = x
+
+    def getXYfromCorrelation(self):
+        obj = Correlation()
+        x,y = obj.getXY()
         self.target = y
         self.data = x
 
