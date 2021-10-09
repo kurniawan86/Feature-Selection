@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import pandas as panda
 from readfile import ReadData
 import seaborn as sn
-import numpy as np
 
 class Correlation:
     dataset =[]
@@ -17,6 +16,7 @@ class Correlation:
         self.getCorrelation()
         self.getRelevanFeature(0.2)
         self.createData()
+        self.visualCorrelation()
 
     def getCorrelation(self):
         self.corrMatrix = self.dataset.corr()
