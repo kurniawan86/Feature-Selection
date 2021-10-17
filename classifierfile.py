@@ -1,13 +1,13 @@
-from readfile import ReadData
-from correlation_matrix import Correlation
-from sklearn.linear_model import LogisticRegression
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.neural_network import MLPClassifier
 from sklearn import svm
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import f1_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
-from sklearn.metrics import f1_score
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.neural_network import MLPClassifier
+from correlation_matrix import Correlation
+from readfile import ReadData
 
 
 class classifiers:
@@ -15,7 +15,9 @@ class classifiers:
         pass
 
     def logicticRegression(self, X, y):
-        return LogisticRegression(random_state=0).fit(X, y)
+        model = LogisticRegression(random_state=0).fit(X, y)
+        print("Coef each Attribute :", model.coef_)
+        return model
 
     def pickClassifier(self, model, X, y):
         if model == 'LogisticRegression':
@@ -26,6 +28,8 @@ class classifiers:
             return self.KNN(X, y)
         elif model == 'MLP':
             return self.MLP(X, y)
+        elif model =='MLP One':
+            return self.MLP_One(X, y)
         else:
             return 0
 
@@ -37,6 +41,12 @@ class classifiers:
     def MLP(self, X, y):
         clf = MLPClassifier(random_state=1, max_iter=500)
         clf.fit(X, y)
+        return clf
+
+    def MLP_One(self, X, y):
+        clf = MLPClassifier(hidden_layer_sizes=1, random_state=1, max_iter=1000, activation='identity')
+        clf.fit(X, y)
+        print(clf.coefs_)
         return clf
 
     def KNN(self, X, y):
