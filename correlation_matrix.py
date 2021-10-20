@@ -28,7 +28,7 @@ class Correlation:
     def viewData(self):
         print("dataset \n", self.data)
 
-    def getRelevanFeature(self,th):
+    def getRelevanFeature(self, th):
         cor = (self.corrMatrix['Outcome'])
         releFeature = cor[cor > th]
         self.best = releFeature.index
@@ -40,10 +40,11 @@ class Correlation:
         for item in cols:
             cek = False
             for best in self.best:
-                if item==best:
+                if item == best:
                     cek = True
             if cek==True:
-                new.insert(i,self.dataset.columns[i],self.dataset[item])
+                new.insert(i, self.dataset.columns[i],
+                           self.dataset[item])
                 i = i+1
         self.data = new
         self.target = self.dataset['Outcome']

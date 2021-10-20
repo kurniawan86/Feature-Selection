@@ -44,7 +44,7 @@ class classifiers:
         return clf
 
     def MLP_One(self, X, y):
-        clf = MLPClassifier(hidden_layer_sizes=1, random_state=1, max_iter=1000, activation='identity')
+        clf = MLPClassifier(hidden_layer_sizes=1, random_state=1, max_iter=500, activation='identity')
         clf.fit(X, y)
         print(clf.coefs_)
         return clf
